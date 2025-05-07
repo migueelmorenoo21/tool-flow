@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
  * @param {string} description - Descripción o contenido de la tarjeta
  * @param {string} color - Color de la barra lateral (código hexadecimal)
  */
-const CardForResume = ({ title, description, color }) => {
+const CardForResume = ({ title, description, color = '#0079BF' }) => {
   return (
     <div className="card-for-resume">
       {/* Barra de color lateral */}
@@ -30,10 +30,6 @@ CardForResume.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   color: PropTypes.string
-};
-
-CardForResume.defaultProps = {
-  color: 'var(--color-primary)' // Color por defecto de la barra lateral
 };
 
 export default CardForResume;

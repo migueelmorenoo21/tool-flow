@@ -1,124 +1,159 @@
 /* =======================================
-   Estilos para sección de tarjetas
+   Estilos para sección de tarjetas - Estilo Trello
    ======================================= */
 
 /* Contenedor principal de la sección */
 .cards-section {
-    display: flex;                      /* Dos columnas: lista y slider */
-    gap: 0;             /* Espacio horizontal entre ellas */
-    width: 100%;
-    align-items: stretch; /* Estira ambas columnas a misma altura */
+  display: flex;                      /* Dos columnas: lista y visualización */
+  gap: 2rem;                          /* Espacio horizontal entre columnas */
+  width: 100%;
+  align-items: stretch;               /* Estira ambas columnas a misma altura */
+  margin-top: 2rem;
+}
+
+/* Columna izquierda: lista de tarjetas */
+.cards-list {
+  flex: 1;                            /* Ocupa 1 fracción del espacio */
+  display: flex;
+  flex-direction: column;             /* Apila tarjetas en vertical */
+  gap: 1.5rem;                        /* Separación entre tarjetas - reducida */
+}
+
+/* Wrapper para manejar estados de tarjetas */
+.card-wrapper {
+  cursor: pointer;                    /* Indica que son clicables */
+  transition: transform 0.3s;
+  width: 100%;                        /* Ocupan todo el ancho disponible */
+}
+
+.card-wrapper.active {
+  transform: translateX(5px);         /* Desplazamiento para indicar activo */
+}
+
+/* CardForResume (tarjeta principal) */
+.card-for-resume {
+  display: flex;                      /* Barra + contenido en fila */
+  align-items: stretch;               /* Estira elementos verticalmente */
+  width: 100%;                        /* Ancho completo del contenedor */
+  max-width: 350px;                   /* Anchura máxima aumentada */
+  min-height: 120px;                  /* Altura reducida */
+  height: auto;                       /* Altura automática basada en contenido */
+  background-color: white;
+  border-radius: 3px;                 /* Bordes más suaves, estilo Trello */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  position: relative;                 /* Para posicionamiento absoluto de hijos */
+}
+
+.card-for-resume:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+/* Barra de color lateral dentro de la tarjeta */
+.color-bar {
+  width: 6px;                         /* Barra más delgada */
+  position: absolute;                 /* Posicionamiento absoluto */
+  top: 0;                            
+  bottom: 0;                         
+  left: 0;                           
+  height: 100%;                       /* Altura completa de la tarjeta */
+}
+
+/* Contenido interno de la tarjeta */
+.card-content {
+  flex: 1;
+  padding: 1.25rem;
+  padding-left: calc(6px + 1.25rem);  /* Espacio para la barra de color + padding */
+}
+
+.card-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #172B4D;                     /* Color de texto Trello */
+  font-weight: 600;
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #5E6C84;                     /* Color de texto secundario Trello */
+  line-height: 1.4;
+}
+
+/* Columna derecha: slider de visualización */
+.slider-aside {
+  flex: 2;                            /* Ocupa doble espacio vs lista */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #F4F5F7;          /* Fondo gris claro estilo Trello */
+  border-radius: 3px;
+  border: 1px solid #DFE1E6;          /* Borde sutil estilo Trello */
+}
+
+/* Wrapper de todas las diapositivas */
+.slides {
+  display: flex;
+  flex: 1;
+  transition: transform 0.4s ease;
+}
+
+/* Cada "slide" ocupa todo el ancho + altura del slider */
+.slide {
+  flex: 1;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+/* HowToUse (tarjeta de instrucciones) */
+.how-to-use-card {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 3px;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  text-align: left;
+}
+
+.how-to-use-card h4 {
+  margin: 0 0 1rem 0;
+  font-size: A1.2rem;
+  color: #172B4D;
+  font-weight: 600;
+}
+
+.how-to-use-card p {
+  margin: 0 0 1.5rem 0;
+  font-size: 1rem;
+  color: #5E6C84;
+  line-height: 1.6;
+}
+
+/* Placeholder para indicar dónde iría la imagen */
+.placeholder-image {
+  width: 100%;
+  height: 200px;
+  background-color: #DFE1E6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  color: #5E6C84;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards-section {
+    flex-direction: column;           /* Apila en móviles */
+    gap: 1.5rem;
   }
   
-  /* Columna izquierda: lista de tarjetas */
-  .cards-list {
-    flex: 1;                            /* Ocupa 1 fracción del espacio */
-    display: flex;
-    flex-direction: column;             /* Apila tarjetas en vertical */
-    gap: var(--spacing-sm);             /* Separación entre tarjetas */
-  }
-  
-  /* Wrapper para manejar estados de tarjetas */
-  .card-wrapper {
-    cursor: pointer;                    /* Indica que son clicables */
-    transition: transform var(--transition-fast);
-    width: fit-content;
-  }
-  
-  .card-wrapper.active {
-    transform: translateX(5px);         /* Pequeño desplazamiento para indicar activo */
-  }
-  
-  /* CardForResume (tarjeta principal) */
   .card-for-resume {
-    display: flex;                      /* Barra + contenido en fila */
-    align-items: center;                /* Centrado vertical de contenido */
-    width: 250px;                       /* Ancho fijo para consistencia */
-    min-height: 70px;                   /* Altura mínima */
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-default);
-    overflow: hidden;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    max-width: 100%;                  /* Ancho completo en móviles */
   }
-  
-  .card-for-resume:hover {
-    transform: scale(1.02);
-    box-shadow: var(--shadow-hover);
-  }
-  
-  /* Barra de color lateral dentro de la tarjeta */
-  .color-bar {
-    width: 8px;
-    height: 150px;
-    min-height: 130px;
-    background-color: var(--color-primary); /* Por defecto, puede ser sobreescrito */
-  }
-  
-  /* Contenido interno de la tarjeta */
-  .card-content {
-    flex: 1;
-    padding: var(--spacing-sm);
-  }
-  
-  .card-content h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.1rem;
-    color: var(--color-text-dark);
-  }
-  
-  .card-content p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--color-text-medium);
-  }
-  
-  /* Columna derecha: slider de HowToUse */
-  .slider-aside {
-    flex: 2;                            /* Ocupa doble espacio vs lista */
-    display: flex;                      /* Convertimos en flex para el slider */
-    flex-direction: column;             /* Columnas: solo .slides dentro */
-    overflow: hidden;                   /* Oculta todo lo que rebase */
-  }
-  
-  /* Wrapper de todas las diapositivas */
-  .slides {
-    display: flex;                      /* Slides en fila para translateX */
-    flex: 1;                            /* Rellena toda la altura de .slider-aside */
-    transition: transform var(--transition-normal);
-  }
-  
-  /* Cada "slide" ocupa todo el ancho + altura del slider */
-  .slide {
-    flex: 1;                            /* Rellena verticalmente igual que .slides */
-    min-width: 100%;                    /* Ancho completo del contenedor padre */
-    display: flex;
-    justify-content: center;            /* Centrado horizontal */
-    align-items: center;                /* Centrado vertical */
-  }
-  
-  /* HowToUse (tarjeta de instrucciones) */
-  .how-to-use-card {
-    padding: var(--spacing-md);         /* Espaciado interno */
-    background: var(--color-white);     /* Fondo blanco */
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius-sm);
-    width: 90%;                         /* Ajusta al ancho del slide */
-    box-shadow: var(--shadow-default);
-    text-align: left;
-    height: 100%;                       /* Altura automática según contenido */
-  }
-  
-  .how-to-use-card h4 {
-    margin: 0 0 var(--spacing-sm) 0;
-    font-size: 1.2rem;
-    color: var(--color-text-dark);
-  }
-  
-  .how-to-use-card p {
-    margin: 0;
-    font-size: 1rem;
-    color: var(--color-text-medium);
-    line-height: 1.6;
-  }
+}

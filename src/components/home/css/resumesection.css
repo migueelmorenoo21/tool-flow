@@ -1,56 +1,60 @@
 /* =======================================
-   Estilos para la sección Resume
-   ======================================= */
-/* =======================================
-   Estilos para la sección Resume
+   Estilos para la sección Resume - Estilo Trello
    ======================================= */
    .resume-section {
-    padding: var(--spacing-lg) 0;
-    width: calc(100% - 250px);  /* Ocupa todo el ancho menos el sidebar */
-    margin-left: 250px;         /* Desplaza la sección a la derecha */
-    overflow-x: hidden;         /* Previene scroll horizontal */
-    background-color: var(--color-white);
-    display: flex;              /* Flexbox activado */
-    flex-direction: column;
-    align-items: center;        /* Centra los elementos horizontalmente */
-    justify-content: center;    /* Centra los elementos verticalmente (si hay altura fija) */
-    text-align: center;         /* Centra el texto dentro de los elementos */
+    padding: 3rem 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
   }
   
+  /* Header con título y descripción */
+  .resume-header {
+    text-align: left;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+  }
   
-  .resume-section h3 {
-    margin: 0 0 var(--spacing-md) 0;
-    font-size: 1.8rem;
-    color: var(--color-text-dark);
-    text-align: center;
+  .resume-title {
+    font-size: 0.9rem;
+    color: #0079BF;                     /* Azul Trello */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+  }
+  
+  .resume-subtitle {
+    font-size: 2.5rem;
+    color: #172B4D;                     /* Azul oscuro Trello */
+    margin: 0 0 1.5rem 0;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  .resume-description {
+    font-size: 1.1rem;
+    color: #5E6C84;                     /* Gris Trello */
+    line-height: 1.6;
+    margin: 0;
   }
   
   .cards-container {
-    width: 100%;                  /* Ocupa ancho completo */
-    max-width: 1200px;  
-    margin: 0 auto;               /* Centra el contenedor */
-    display: flex;                /* Flexbox activado */
-    flex-direction: column;       /* Elementos en columna */
-    align-items: center;          /* Centra todo horizontalmente */
-    justify-content: center;      /* Centra todo verticalmente */
-    text-align: center;
+    width: 100%;
   }
   
   /* Responsive */
   @media (max-width: 768px) {
-    .cards-section {
-      flex-direction: column;     /* Apila en móviles */
+    .resume-section {
+      padding: 2rem 1rem;
     }
     
-    .cards-list,
-    .card-for-resume {
-      width: 100%;                /* Ancho completo en móviles */
+    .resume-subtitle {
+      font-size: 2rem;
     }
     
-    .hero-tittle,
-    .subtitle-hero,
-    .terms {
-      max-width: 90%;             /* Mejor adaptación en móviles */
+    .resume-description {
+      font-size: 1rem;
     }
   }
-  

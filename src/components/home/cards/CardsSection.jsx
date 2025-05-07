@@ -3,45 +3,45 @@ import CardForResume from './CardForResume';
 import HowToUse from './HowToUse';
 
 /**
- * Datos de ejemplo para las tarjetas
- * En una aplicación real, estos datos podrían venir de una API o props
+ * Datos de ejemplo para las tarjetas, adaptados al estilo Trello
+ * Manteniendo la estructura pero adaptando el contenido
  */
 const CARDS_DATA = [
   {
-    id: 'card1',
-    title: "Organiza tus tareas",
-    description: "Crea y organiza tus tareas fácilmente.",
-    color: "#1E90FF", // color principal
+    id: 'bandeja',
+    title: "Bandeja de entrada",
+    description: "Si lo tienes en mente, entonces colócalo en la bandeja de entrada. Registra tus tareas pendientes en cualquier lugar y momento.",
+    color: "#00C2E0", // color turquesa Trello
     howToUse: {
-      tittle: "Cómo usar esta aplicación",
-      usage: "1. Crea una cuenta. 2. Inicia sesión. 3. Crea y organiza tus tareas."
+      tittle: "Cómo usar la bandeja de entrada",
+      usage: "Coloca todas tus ideas y tareas pendientes aquí para no olvidarlas. Luego organízalas en tus tableros."
     }
   },
   {
-    id: 'card2',
-    title: "Colabora con tu equipo",
-    description: "Trabaja junto a tu equipo en tiempo real.",
-    color: "#32CD32", // color éxito
+    id: 'tableros',
+    title: "Tableros",
+    description: "Tu lista de tareas pendientes puede ser larga, ¡pero manejable! Mantente al tanto de todo, desde las 'tareas por hacer' hasta los 'objetivo cumplido'.",
+    color: "#FF9F1A", // color naranja Trello
     howToUse: {
-      tittle: "Cómo colaborar con tu equipo",
-      usage: "1. Invita a tus compañeros. 2. Asigna tareas. 3. Trabaja en tiempo real."
+      tittle: "Cómo usar los tableros",
+      usage: "Organiza tus tareas en tableros temáticos. Mueve las tarjetas desde 'Por hacer' hasta 'Terminado' para seguir tu progreso."
     }
   },
   {
-    id: 'card3',
-    title: "Gestiona tus proyectos",
-    description: "Mantén un seguimiento de tus proyectos y tareas.",
-    color: "#FF6347", // color advertencia
+    id: 'planificador',
+    title: "Planificador",
+    description: "Arrastra, suelta y termina. Mete las tareas más importantes en el calendario y dedica tiempo a lo que de verdad importa.",
+    color: "#0079BF", // color azul Trello
     howToUse: {
-      tittle: "Cómo gestionar tus proyectos",
-      usage: "1. Crea un nuevo proyecto. 2. Añade tareas. 3. Asigna tareas a los miembros del equipo."
+      tittle: "Cómo usar el planificador",
+      usage: "Añade fechas a tus tareas y visualízalas en el calendario. Prioriza lo importante y mantén el enfoque en lo que realmente importa."
     }
   },
 ];
 
 /**
- * Componente CardsSection que muestra tarjetas interactivas y su información relacionada
- * Implementa un slider simple y selección de tarjetas activas
+ * Componente CardsSection que muestra tarjetas interactivas y su información
+ * Rediseñado para imitar el estilo visual de Trello
  */
 const CardsSection = () => {
   // Estado para controlar qué tarjeta está activa
@@ -75,10 +75,10 @@ const CardsSection = () => {
         ))}
       </aside>
 
-      {/* Columna derecha: slider de HowToUse */}
+      {/* Columna derecha: zona de visualización */}
       <aside 
         className="slider-aside" 
-        aria-label={`Instrucciones para ${CARDS_DATA[activeIndex]?.title || 'la función seleccionada'}`}
+        aria-label={`Visualización de ${CARDS_DATA[activeIndex]?.title || 'la función seleccionada'}`}
       >
         <div
           className="slides"

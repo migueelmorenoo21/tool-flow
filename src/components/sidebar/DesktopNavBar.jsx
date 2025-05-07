@@ -7,7 +7,7 @@ function DesktopNavBar() {
             <nav className="sidebar-nav">
                 {/* Logo al principio */}
                 <div className="sidebar-logo">
-                    <img src="/logo.png" alt="Logo" className="logo" />
+                    <img src="/favsinfondo.png" alt="Logo" className="logo" />
                 </div>
                 <ul>
                     <NavItem title="Home" to="/" />

@@ -1,27 +1,225 @@
-/* ==== BARRA DE NAVEGACIÓN MÓVIL ==== */
+/* ==== MOBILE NAVBAR TAREA FLOW ==== */
+/* Reutilizamos las variables de color del sidebar */
+:root {
+  --color-blue-light: #3388ff;
+  --color-blue-medium: #2978e2;
+  --color-teal: #36c2bd;
+  --color-green: #4cd0a0;
+  --color-navy: #081b4b;
+  --color-white: #ffffff;
+}
+
+/* Barra de navegación móvil */
 .mobile-navbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background-color: var(--color-bg-alt);
-    border-top: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(145deg, var(--color-blue-light), var(--color-teal));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+/* Botón de menú hamburguesa */
+.menu-toggle {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* Icono de hamburguesa */
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+}
+
+/* Barras del icono hamburguesa */
+.bar {
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animación para el icono cuando el menú está abierto */
+.bar.open:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.open:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Título de la aplicación */
+.app-title {
+  display: flex;
+  align-items: center;
+  color: var(--color-white);
+}
+
+.app-title h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de perfil */
+.profile-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.profile-button:hover {
+  transform: scale(1.05);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-weight: bold;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Menú desplegable */
+.mobile-menu {
+  position: fixed;
+  top: 60px; /* Justo debajo de la barra de navegación */
+  left: 0;
+  width: 250px;
+  height: calc(100% - 60px);
+  background-color: var(--color-white);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+}
+
+/* Menú abierto */
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* Contenedor interno del menú */
+.mobile-menu-inner {
+  padding: 16px 0;
+}
+
+/* Lista de opciones del menú */
+.menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Adaptación de NavItem para móvil */
+.mobile-menu .menu-items li {
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+/* Aseguramos que los enlaces dentro de NavItem se vean bien en móvil */
+.mobile-menu .menu-items li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: var(--color-navy);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.mobile-menu .menu-items li a:hover,
+.mobile-menu .menu-items li a.active {
+  background-color: rgba(51, 136, 255, 0.1);
+  color: var(--color-blue-medium);
+  border-left: 3px solid var(--color-green);
+}
+
+/* Iconos dentro de NavItem */
+.mobile-menu .menu-items li a i,
+.mobile-menu .menu-items li a svg {
+  margin-right: 10px;
+  font-size: 1.1rem;
+  color: var(--color-teal);
+  transition: transform 0.2s ease;
+}
+
+.mobile-menu .menu-items li a:hover i,
+.mobile-menu .menu-items li a:hover svg {
+  transform: scale(1.1);
+  color: var(--color-green);
+}
+
+/* Overlay para cerrar el menú al hacer clic fuera */
+.menu-overlay {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: rgba(8, 27, 75, 0.5);
+  z-index: 998;
+  backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease;
+}
+
+/* Footer del menú móvil */
+.mobile-menu-footer {
+  margin-top: 2rem;
+  padding: 1rem 16px;
+  border-top: 1px solid rgba(8, 27, 75, 0.1);
+  font-size: 0.85rem;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+/* Aseguramos que el navbar solo aparezca en móviles */
+@media (min-width: 769px) {
+  .mobile-navbar,
+  .mobile-menu,
+  .menu-overlay {
+    display: none;
   }
-  
-  .mobile-navbar a {
-    color: var(--color-text);
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0.75rem;
-  }
-  
-  .mobile-navbar a.active {
-    color: var(--color-primary);
-  }
+}
+
+.logo-movil{
+  height: 60px;
+  width: auto;
+}
