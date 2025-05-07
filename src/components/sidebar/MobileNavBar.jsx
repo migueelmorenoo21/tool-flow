@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavItem from './components/desktop/NavItem';
-
+import { HomeIcon, InboxIcon, DashboardIcon } from '../common/NavIcons'; // Importa los íconos
 /**
  * Componente MobileNavBar - Barra de navegación para dispositivos móviles
  * con menú hamburguesa que despliega las mismas opciones de navegación que el sidebar
@@ -51,9 +51,9 @@ function MobileNavBar() {
           {/* Navegación usando el mismo componente NavItem que en desktop */}
           <ul className="menu-items">
             {/* Usamos los mismos NavItems que en el DesktopNavBar */}
-            <NavItem title="Home" to="/" />
-            <NavItem title="My Dashboards" to="/mydashboards" />
-            <NavItem title="Create Dashboard" to="/create-dashboard" />
+            <NavItem title="Home" to="/" icon={HomeIcon} />
+            <NavItem title="Bandeja de entrada" to="/mydashboards" icon={InboxIcon}/>
+            <NavItem title="Create Dashboard" to="/create-dashboard" icon={DashboardIcon}/>
             <NavItem title="Profile" to="/profile" />
             <NavItem title="About Us" to="/about-us" />
           </ul>
