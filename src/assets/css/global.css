@@ -1,0 +1,79 @@
+/* ==== PALETA DE COLORES ==== */
+:root {
+    /* Colores principales */
+    --color-primary:   #1E90FF; /* Azul brillante (botones, links) */
+    --color-secondary: #32CD32; /* Verde lima   (checkmarks, acentos) */
+  
+    /* Textos */
+    --color-text:      #0B2141; /* Azul muy oscuro */
+  
+    /* Fondos */
+    --color-bg:        #FFFFFF; /* Blanco puro (modo claro) */
+    --color-bg-alt:    #F4F6F8; /* Gris muy claro (tarjetas, secciones) */
+  
+    /* Bordes y sombras */
+    --color-border:    #E0E4E8; /* Gris suave */
+    --shadow-default:  rgba( 0, 0, 0, 0.08 ); /* Sombra ligera */
+  }
+  
+  /* Modo oscuro opcional */
+  [data-theme="dark"] {
+    --color-bg:        #1A1A1A;
+    --color-bg-alt:    #252525;
+    --color-text:      #E1E1E1;
+    --color-border:    #333333;
+  }
+  
+  
+  /* ==== TIPOGRAFÍA ==== */
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  strong, b {
+    font-weight: 500;
+  }
+  
+  /* Ejemplos de uso en componentes: */
+  
+  .button {
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 4px var(--shadow-default);
+    transition: background-color 0.2s ease;
+  }
+  .button:hover {
+    background-color: #187bcd; /* Ligero darken de primary */
+  }
+  
+  .card {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px var(--shadow-default);
+  }
+  
+  .toggle-darkmode {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+  
