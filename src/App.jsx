@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import MyDashboards from './pages/MyDashboards'
 import CreateDashboard from './pages/CreateDashboard'
 import Profile from './pages/Profile'
+import AboutUs from './pages/AboutUs'
 
 function App() {
   // 1. Estado que indica si estamos en móvil
@@ -38,6 +39,7 @@ function App() {
           <Route path="mydashboards"    element={<MyDashboards />}    />
           <Route path="create-dashboard" element={<CreateDashboard />} />
           <Route path="profile"         element={<Profile />}         />
+          <Route path="about-us"        element={<AboutUs />}        />
         </Route>
       </Routes>
     </BrowserRouter>

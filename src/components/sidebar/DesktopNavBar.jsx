@@ -1,19 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import NavItem from './components/desktop/NavItem';
 
-function DesktopNavBar () {
+function DesktopNavBar() {
     return (
         <aside className="sidebar">
             <nav className="sidebar-nav">
+                {/* Logo al principio */}
+                <div className="sidebar-logo">
+                    <img src="/logo.png" alt="Logo" className="logo" />
+                </div>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/mydashboards">My Dashboards</Link></li>
-                    <li><Link to="/create-dashboard">Create Dashboard</Link></li>
-                    <li><Link to="/profile">Profile</Link></li>
-                    <li><Link to="/about-us">About Us</Link></li>
+                    <NavItem title="Home" to="/" />
+                    <NavItem title="My Dashboards" to="/mydashboards" />
+                    <NavItem title="Create Dashboard" to="/create-dashboard" />
+                    <NavItem title="Profile" to="/profile" />
+                    <NavItem title="About Us" to="/about-us" />
                 </ul>
             </nav>
         </aside>
-    )
+    );
 }
+
 export default DesktopNavBar;

@@ -1,0 +1,56 @@
+/* =======================================
+   Estilos para la sección Resume
+   ======================================= */
+/* =======================================
+   Estilos para la sección Resume
+   ======================================= */
+   .resume-section {
+    padding: var(--spacing-lg) 0;
+    width: calc(100% - 250px);  /* Ocupa todo el ancho menos el sidebar */
+    margin-left: 250px;         /* Desplaza la sección a la derecha */
+    overflow-x: hidden;         /* Previene scroll horizontal */
+    background-color: var(--color-white);
+    display: flex;              /* Flexbox activado */
+    flex-direction: column;
+    align-items: center;        /* Centra los elementos horizontalmente */
+    justify-content: center;    /* Centra los elementos verticalmente (si hay altura fija) */
+    text-align: center;         /* Centra el texto dentro de los elementos */
+  }
+  
+  
+  .resume-section h3 {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 1.8rem;
+    color: var(--color-text-dark);
+    text-align: center;
+  }
+  
+  .cards-container {
+    width: 100%;                  /* Ocupa ancho completo */
+    max-width: 1200px;  
+    margin: 0 auto;               /* Centra el contenedor */
+    display: flex;                /* Flexbox activado */
+    flex-direction: column;       /* Elementos en columna */
+    align-items: center;          /* Centra todo horizontalmente */
+    justify-content: center;      /* Centra todo verticalmente */
+    text-align: center;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .cards-section {
+      flex-direction: column;     /* Apila en móviles */
+    }
+    
+    .cards-list,
+    .card-for-resume {
+      width: 100%;                /* Ancho completo en móviles */
+    }
+    
+    .hero-tittle,
+    .subtitle-hero,
+    .terms {
+      max-width: 90%;             /* Mejor adaptación en móviles */
+    }
+  }
+  
