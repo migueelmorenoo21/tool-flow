@@ -1,0 +1,42 @@
+/* =======================================
+   Archivo principal CSS que importa todos los estilos
+   ======================================= */
+
+/* Importaciones de archivos de estilos */
+@import 'variables.css';
+@import 'components/hero.css';
+@import 'components/cards.css';
+@import 'components/resumeSection.css';
+
+/* Estilos globales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  background-color: var(--color-background);
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Utilidades */
+.hidden {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}

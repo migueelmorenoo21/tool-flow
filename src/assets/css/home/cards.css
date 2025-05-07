@@ -1,0 +1,124 @@
+/* =======================================
+   Estilos para sección de tarjetas
+   ======================================= */
+
+/* Contenedor principal de la sección */
+.cards-section {
+    display: flex;                      /* Dos columnas: lista y slider */
+    gap: var(--spacing-lg);             /* Espacio horizontal entre ellas */
+    width: 100%;
+    align-items: stretch;               /* Estira ambas columnas a misma altura */
+    margin: var(--spacing-lg) 0;
+  }
+  
+  /* Columna izquierda: lista de tarjetas */
+  .cards-list {
+    flex: 1;                            /* Ocupa 1 fracción del espacio */
+    display: flex;
+    flex-direction: column;             /* Apila tarjetas en vertical */
+    gap: var(--spacing-sm);             /* Separación entre tarjetas */
+  }
+  
+  /* Wrapper para manejar estados de tarjetas */
+  .card-wrapper {
+    cursor: pointer;                    /* Indica que son clicables */
+    transition: transform var(--transition-fast);
+  }
+  
+  .card-wrapper.active {
+    transform: translateX(5px);         /* Pequeño desplazamiento para indicar activo */
+  }
+  
+  /* CardForResume (tarjeta principal) */
+  .card-for-resume {
+    display: flex;                      /* Barra + contenido en fila */
+    align-items: center;                /* Centrado vertical de contenido */
+    width: 250px;                       /* Ancho fijo para consistencia */
+    min-height: 70px;                   /* Altura mínima */
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-default);
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  
+  .card-for-resume:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Barra de color lateral dentro de la tarjeta */
+  .color-bar {
+    width: 8px;
+    height: 100%;
+    min-height: 100px;
+    background-color: var(--color-primary); /* Por defecto, puede ser sobreescrito */
+  }
+  
+  /* Contenido interno de la tarjeta */
+  .card-content {
+    flex: 1;
+    padding: var(--spacing-sm);
+  }
+  
+  .card-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+  }
+  
+  .card-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-medium);
+  }
+  
+  /* Columna derecha: slider de HowToUse */
+  .slider-aside {
+    flex: 2;                            /* Ocupa doble espacio vs lista */
+    display: flex;                      /* Convertimos en flex para el slider */
+    flex-direction: column;             /* Columnas: solo .slides dentro */
+    overflow: hidden;                   /* Oculta todo lo que rebase */
+  }
+  
+  /* Wrapper de todas las diapositivas */
+  .slides {
+    display: flex;                      /* Slides en fila para translateX */
+    flex: 1;                            /* Rellena toda la altura de .slider-aside */
+    transition: transform var(--transition-normal);
+  }
+  
+  /* Cada "slide" ocupa todo el ancho + altura del slider */
+  .slide {
+    flex: 1;                            /* Rellena verticalmente igual que .slides */
+    min-width: 100%;                    /* Ancho completo del contenedor padre */
+    display: flex;
+    justify-content: center;            /* Centrado horizontal */
+    align-items: center;                /* Centrado vertical */
+  }
+  
+  /* HowToUse (tarjeta de instrucciones) */
+  .how-to-use-card {
+    padding: var(--spacing-md);         /* Espaciado interno */
+    background: var(--color-white);     /* Fondo blanco */
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    width: 90%;                         /* Ajusta al ancho del slide */
+    box-shadow: var(--shadow-default);
+    text-align: left;
+    height: 100%;                       /* Altura automática según contenido */
+  }
+  
+  .how-to-use-card h4 {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 1.2rem;
+    color: var(--color-text-dark);
+  }
+  
+  .how-to-use-card p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--color-text-medium);
+    line-height: 1.6;
+  }

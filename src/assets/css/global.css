@@ -1,79 +1,110 @@
-/* ==== PALETA DE COLORES ==== */
-:root {
+/* =======================================
+   Variables globales (colores, sombras, bordes, espaciados)
+   ======================================= */
+   :root {
     /* Colores principales */
-    --color-primary:   #1E90FF; /* Azul brillante (botones, links) */
-    --color-secondary: #32CD32; /* Verde lima   (checkmarks, acentos) */
-  
-    /* Textos */
-    --color-text:      #0B2141; /* Azul muy oscuro */
-  
-    /* Fondos */
-    --color-bg:        #FFFFFF; /* Blanco puro (modo claro) */
-    --color-bg-alt:    #F4F6F8; /* Gris muy claro (tarjetas, secciones) */
-  
-    /* Bordes y sombras */
-    --color-border:    #E0E4E8; /* Gris suave */
-    --shadow-default:  rgba( 0, 0, 0, 0.08 ); /* Sombra ligera */
+    --color-primary: #1E90FF;           /* Color principal de acento */
+    --color-success: #32CD32;           /* Color de éxito/correcto */
+    --color-warning: #FF6347;           /* Color de advertencia */
+    --color-text-dark: #333;            /* Texto oscuro */
+    --color-text-medium: #666;          /* Texto medio */
+    --color-background: #f9f9f9;        /* Fondo general */
+    --color-white: #fff;                /* Fondo blanco */
+    --color-border: #ddd;               /* Color estándar de bordes */
+    
+    /* Sombras */
+    --shadow-default: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+    --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.1);    /* Sombra al pasar el cursor */
+    
+    /* Bordes */
+    --border-radius-sm: 6px;            /* Radio de borde pequeño */
+    --border-radius-md: 8px;            /* Radio de borde mediano */
+    
+    /* Espaciados */
+    --spacing-xs: 0.5rem;               /* 8px */
+    --spacing-sm: 1rem;                 /* 16px */
+    --spacing-md: 1.5rem;               /* 24px */
+    --spacing-lg: 2rem;                 /* 32px */
+    
+    /* Transiciones */
+    --transition-fast: 0.3s ease;       /* Transición rápida */
+    --transition-normal: 0.4s ease;     /* Transición normal */
+  }
+
+/* ==== RESET BÁSICO ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==== TIPOGRAFÍA ==== */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+/* ==== LAYOUT BÁSICO ==== */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+  padding: 1rem;
+  background-color: var(--color-bg);
+}
+
+/* ==== COMPONENTES BÁSICOS ==== */
+.button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px var(--shadow-default);
+  transition: background-color 0.2s ease;
+  margin-left: 15px;
+}
+
+.button:hover {
+  background-color: #187bcd;
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px var(--shadow-default);
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 0.60rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
   }
   
-  /* Modo oscuro opcional */
-  [data-theme="dark"] {
-    --color-bg:        #1A1A1A;
-    --color-bg-alt:    #252525;
-    --color-text:      #E1E1E1;
-    --color-border:    #333333;
+  .app-container.mobile .content {
+    padding-bottom: 70px; /* Espacio para la barra de navegación móvil */
   }
   
-  
-  /* ==== TIPOGRAFÍA ==== */
-  
-  body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    line-height: 1.6;
+  .sidebar {
+    display: none;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
-  
-  strong, b {
-    font-weight: 500;
-  }
-  
-  /* Ejemplos de uso en componentes: */
-  
-  .button {
-    background-color: var(--color-primary);
-    color: #fff;
-    border: none;
-    border-radius: 0.375rem;
-    padding: 0.75rem 1.25rem;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: 0 2px 4px var(--shadow-default);
-    transition: background-color 0.2s ease;
-  }
-  .button:hover {
-    background-color: #187bcd; /* Ligero darken de primary */
-  }
-  
-  .card {
-    background-color: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    box-shadow: 0 1px 3px var(--shadow-default);
-  }
-  
-  .toggle-darkmode {
-    display: inline-flex;
-    align-items: center;
-    font-weight: 500;
-    color: var(--color-text);
-  }
-  
+}
