@@ -5,7 +5,7 @@
 /* Contenedor principal de la sección */
 .cards-section {
     display: flex;                      /* Dos columnas: lista y slider */
-    gap: var(--spacing-lg);             /* Espacio horizontal entre ellas */
+    gap: 0;             /* Espacio horizontal entre ellas */
     width: 100%;
     align-items: stretch;               /* Estira ambas columnas a misma altura */
     margin: var(--spacing-lg) 0;
@@ -23,6 +23,7 @@
   .card-wrapper {
     cursor: pointer;                    /* Indica que son clicables */
     transition: transform var(--transition-fast);
+    width: fit-content;
   }
   
   .card-wrapper.active {
@@ -51,8 +52,8 @@
   /* Barra de color lateral dentro de la tarjeta */
   .color-bar {
     width: 8px;
-    height: 100%;
-    min-height: 100px;
+    height: 150px;
+    min-height: 130px;
     background-color: var(--color-primary); /* Por defecto, puede ser sobreescrito */
   }
   

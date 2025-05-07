@@ -8,7 +8,7 @@
     --color-warning: #FF6347;           /* Color de advertencia */
     --color-text-dark: #333;            /* Texto oscuro */
     --color-text-medium: #666;          /* Texto medio */
-    --color-background: #f9f9f9;        /* Fondo general */
+    --color-background: #fafafa;        /* Fondo general */
     --color-white: #fff;                /* Fondo blanco */
     --color-border: #ddd;               /* Color estándar de bordes */
     
@@ -62,7 +62,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .content {
   flex: 1;
-  padding: 1rem;
   background-color: var(--color-bg);
 }
 

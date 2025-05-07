@@ -6,6 +6,7 @@
     width: 100%;
     overflow-x: hidden;                /* Previene scroll horizontal */
     background-color: var(--color-white);
+    padding-left: 30px;
   }
   
   .resume-section h3 {
@@ -17,7 +18,8 @@
   
   .cards-container {
     width: 90%;                        /* Contiene el ancho */
-    max-width: 1200px;                 /* Limita el ancho máximo */
+    max-width: 1200px;  
+    margin: auto;               /* Limita el ancho máximo */
 }
   
   /* Responsive */
