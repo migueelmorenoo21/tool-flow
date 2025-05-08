@@ -13,7 +13,7 @@ function DesktopLayout() {
 
   return (
     <div className="app-container">
-      {isSidebarOpen && <DesktopNavBar />}
+      {isSidebarOpen && <DesktopNavBar toggleSidebar={toggleSidebar} />}
       <button
         className={`sidebar-toggle ${isSidebarOpen ? 'open' : 'closed'}`}
         onClick={toggleSidebar}
