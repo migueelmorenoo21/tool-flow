@@ -1,0 +1,201 @@
+/* ==== FOOTER TAREA FLOW ==== */
+:root {
+    --color-blue-light: #3388ff;
+    --color-blue-medium: #2978e2;
+    --color-teal: #36c2bd;
+    --color-green: #4cd0a0;
+    --color-navy: #081b4b;
+    --color-white: #ffffff;
+  }
+  
+  .footer {
+    width: 100%;
+    margin-left: auto; /* Empuja el footer hacia la derecha */
+    padding: 2rem 3rem;
+    background: linear-gradient(145deg, var(--color-teal), var(--color-blue-light));
+    color: var(--color-white);
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
+    z-index: 900;
+    transition: all 0.3s ease-in-out;
+    margin-top: 50px;
+}
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Columnas del footer */
+  .footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-green);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  
+  .footer-column:hover h3::after {
+    width: 60px;
+  }
+  
+  /* Lista de enlaces */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.75rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .footer-links li:hover {
+    transform: translateX(3px);
+  }
+  
+  .footer-links a {
+    color: var(--color-white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    opacity: 0.85;
+  }
+  
+  .footer-links a:hover {
+    opacity: 1;
+  }
+  
+  /* Estilos para enlaces eliminados los iconos */
+  
+  /* Sección de contacto */
+  .contact-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+  }
+  
+  .contact-info p:hover {
+    opacity: 1;
+  }
+  
+  /* Estilos para contacto eliminados los iconos */
+  
+  /* Área de suscripción */
+  .subscription-form {
+    margin-top: 1rem;
+  }
+  
+  .subscription-form input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    width: 100%;
+    color: var(--color-white);
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+  }
+  
+  .subscription-form input:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: var(--color-green);
+    outline: none;
+  }
+  
+  .subscription-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .subscription-form button {
+    background-color: var(--color-green);
+    color: var(--color-navy);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .subscription-form button:hover {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Redes sociales */
+  .social-links {
+    display: flex;
+    margin-top: 1rem;
+  }
+  
+  .social-links a {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-white);
+    border-radius: 6px;
+    margin-right: 0.75rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  
+  .social-links a:hover {
+    background-color: var(--color-navy);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Copyright section */
+  .footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer {
+      padding: 2rem 1.5rem;
+    }
+    
+    .footer-container {
+      flex-direction: column;
+    }
+    
+    .footer-column {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }

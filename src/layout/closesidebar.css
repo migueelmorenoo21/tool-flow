@@ -1,0 +1,39 @@
+/* Botón de toggle del sidebar */
+.sidebar-toggle {
+    position: fixed;
+    top: 10px;
+    left: 260px; /* Posición inicial, al lado del sidebar */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1000; /* Asegura que esté por encima del layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar-toggle.closed {
+    left: 10px; /* Cuando el sidebar está cerrado, el botón se pega a la izquierda */
+  }
+  
+  .sidebar-toggle:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Ajustes del layout según el estado del sidebar */
+  .content.with-sidebar {
+    margin-left: 250px; /* Espacio reservado para el sidebar */
+    transition: margin-left 0.3s ease;
+  }
+  
+  .content.without-sidebar {
+    margin-left: 0; /* Sin margen cuando el sidebar está cerrado */
+    transition: margin-left 0.3s ease;
+  }
