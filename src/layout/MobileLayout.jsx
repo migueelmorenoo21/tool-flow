@@ -1,16 +1,15 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import MobileNavBar from '../components/sidebar/MobileNavBar'
+import React from 'react';
+import MobileNavBar from '../components/sidebar/MobileNavBar';
 
-const MobileLayout = () => {
+const MobileLayout = ({ children }) => { // Recibe `children` como prop en lugar de usar `Outlet`
   return (
     <div className="app-container mobile">
       <MobileNavBar />
       <main className="content">
-        <Outlet />
+        {children} {/* Renderiza los hijos pasados desde Next.js */}
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default MobileLayout
+export default MobileLayout;

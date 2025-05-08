@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import CardForResume from './CardForResume';
 import HowToUse from './HowToUse';

@@ -1,16 +1,13 @@
 /* =======================================
    Estilos para la sección Resume - Estilo Trello
    ======================================= */
-
    .resume-section {
     padding: 3rem 2rem;              /* Espacio interno superior/inferior y lateral */
     width: 100%;
-    max-width: 1200px;               /* Ancho máximo para contener el contenido */
     margin: 0 auto;                  /* Centra horizontalmente la sección */
     background-color: white;         /* Fondo blanco */
   }
   
-  /* Header con título y descripción */
   .resume-header {
     text-align: left;                /* Alineación de texto a la izquierda */
     margin-bottom: 2.5rem;           /* Separación inferior */
@@ -35,7 +32,7 @@
   }
   
   .resume-description {
-    font-size: 1.1rem;               /* Tamaño de texto standard */
+    font-size: 1.1rem;               /* Tamaño de texto estándar */
     color: #5E6C84;                  /* Gris Trello */
     line-height: 1.6;                /* Altura de línea para mejor lectura */
     margin: 0;                       /* Sin márgenes extra */
@@ -48,66 +45,106 @@
   /* =======================================
      Estilos para la sección de tarjetas
      ======================================= */
-
-.cards-section {
-  position: relative;              /* Contexto para posicionar los indicadores */
-  display: flex;
-  flex-direction: row;             /* Alinea las columnas en fila */
-  gap: 2rem;                       /* Espacio entre columnas */
-}
-
-.cards-list {
-  flex: 1;                         /* Ocupa una parte proporcional del espacio */
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;                       /* Espacio entre tarjetas */
-}
-
-.slider-aside {
-  flex: 2;                         /* Ocupa más espacio que la lista de tarjetas */
-  position: relative;              /* Contexto para posicionar elementos internos */
-  overflow: hidden;                /* Oculta las slides fuera del contenedor */
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.5s ease; /* Transición suave entre slides */
-}
-
-.slide {
-  min-width: 100%;                 /* Cada slide ocupa todo el ancho del contenedor */
-  flex-shrink: 0;
-}
-
-/* Indicadores de navegación (dots) */
-.indicators {
-  position: absolute;
-  bottom: 20px;                    /* Posiciona los indicadores en la parte inferior del contenedor */
-  left: 50%;                       /* Centra horizontalmente */
-  transform: translateX(-50%);     /* Ajuste fino para centrar completamente */
-  display: flex;
-  justify-content: center;         /* Asegura que los dots estén centrados dentro del contenedor */
-  gap: 8px;                        /* Espacio entre cada indicador */
-  z-index: 10;                     /* Asegura que queden por encima de otros elementos */
-}
-
-.indicator {
-  width: 12px;                     /* Tamaño del dot */
-  height: 12px;
-  border-radius: 50%;              /* Dot redondo */
-  background-color: #ccc;          /* Gris claro por defecto */
-  border: 2px solid #0079BF;       /* Borde azul para contraste */
-  cursor: pointer;                 /* Manito al pasar el ratón */
-  transition: background-color 0.3s ease,
-              transform 0.3s ease,
-              width 0.3s ease, 
-              border-radius 0.3s ease; 
-}
-
-.indicator.active {
-  background-color: #0079BF;       /* Azul Trello cuando está activo */
-  transform: scale(1.2);           /* Agranda ligeramente el dot */
-  width: 30px;
-  box-shadow: 0 0 5px rgba(0, 121, 191, 0.5); /* Sombra para destacar */
-  border-radius: 50px;
-}
+  .cards-section {
+    position: relative;              /* Contexto para posicionar los indicadores */
+    display: flex;
+    flex-direction: row;             /* Alinea las columnas en fila */
+    gap: 2rem;                       /* Espacio entre columnas */
+  }
+  
+  .cards-list {
+    flex: 1;                         /* Ocupa una parte proporcional del espacio */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;                       /* Espacio entre tarjetas */
+  }
+  
+  .slider-aside {
+    flex: 2;                         /* Ocupa más espacio que la lista de tarjetas */
+    position: relative;              /* Contexto para posicionar elementos internos */
+    overflow: hidden;                /* Oculta las slides fuera del contenedor */
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease; /* Transición suave entre slides */
+  }
+  
+  .slide {
+    min-width: 100%;                 /* Cada slide ocupa todo el ancho del contenedor */
+    flex-shrink: 0;
+  }
+  
+  /* Indicadores de navegación (dots) */
+  .indicators {
+    position: absolute;
+    bottom: 20px;                    /* Posiciona los indicadores en la parte inferior del contenedor */
+    left: 50%;                       /* Centra horizontalmente */
+    transform: translateX(-50%);     /* Ajuste fino para centrar completamente */
+    display: flex;
+    justify-content: center;         /* Asegura que los dots estén centrados dentro del contenedor */
+    gap: 8px;                        /* Espacio entre cada indicador */
+    z-index: 10;                     /* Asegura que queden por encima de otros elementos */
+  }
+  
+  .indicator {
+    width: 12px;                     /* Tamaño del dot */
+    height: 12px;
+    border-radius: 50%;              /* Dot redondo */
+    background-color: #ccc;          /* Gris claro por defecto */
+    border: 2px solid #0079BF;       /* Borde azul para contraste */
+    cursor: pointer;                 /* Manito al pasar el ratón */
+    transition:
+      background-color 0.3s ease,
+      transform        0.3s ease,
+      width            0.3s ease,
+      border-radius    0.3s ease;
+  }
+  
+  .indicator.active {
+    background-color: #0079BF;       /* Azul Trello cuando está activo */
+    transform: scale(1.2);           /* Agranda ligeramente el dot */
+    width: 30px;
+    box-shadow: 0 0 5px rgba(0, 121, 191, 0.5); /* Sombra para destacar */
+    border-radius: 50px;
+  }
+  
+  /* =======================================
+     Responsive: tablets (768px - 1024px)
+     ======================================= */
+  @media (max-width: 1024px) {
+    .cards-section {
+      gap: 1.5rem;
+    }
+    .cards-list,
+    .slider-aside {
+      flex: unset;                   /* Para que no se repartan espacio extra */
+    }
+  }
+  
+  /* =======================================
+     Responsive: móviles (<768px)
+     Columna única: tarjetas apiladas
+     ======================================= */
+  @media (max-width: 767px) {
+    .cards-section {
+      flex-direction: column;        /* Apila lista y slider */
+      gap: 2rem;
+    }
+  
+    .cards-list {
+      width: 100%;
+      flex-direction: column;        /* Cada tarjeta en fila */
+      gap: 1rem;
+    }
+  
+    .slider-aside {
+      width: 100%;
+      margin-top: 1rem;
+      /* Si quieres que el slider también sea de ancho completo: */
+      .slides, .slide {
+        min-width: 100%;
+      }
+    }
+  }
+  

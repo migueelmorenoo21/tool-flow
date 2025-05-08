@@ -11,6 +11,7 @@
     justify-content: center;
     min-height: 100vh; /* Altura mínima de la ventana */
     overflow: hidden;
+    margin-left: 50px; /* Desplazamiento a la izquierda para centrar el contenido */
   }
   
   .hero-content {
@@ -19,8 +20,6 @@
     align-items: center;       
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
     gap: clamp(1rem, 5vw, 3rem);
     height: 100vh; /* Usar toda la altura de la ventana */
   }

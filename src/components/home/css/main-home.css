@@ -2,11 +2,6 @@
    Archivo principal CSS que importa todos los estilos
    ======================================= */
 
-/* Importaciones de archivos de estilos */
-@import 'variables.css';
-@import 'components/hero.css';
-@import 'components/cards.css';
-@import 'components/resumeSection.css';
 
 /* Estilos globales */
 * {
@@ -24,7 +19,6 @@ body {
 
 .content {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
