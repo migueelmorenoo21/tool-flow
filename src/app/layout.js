@@ -5,6 +5,7 @@ import '../layout/closesidebar.css';
 import { useEffect, useState } from 'react';
 import MobileLayout from '../layout/MobileLayout';
 import DesktopLayout from '../layout/DesktopLayout';
+import { AuthProvider } from '../context/AuthContext';
 
 export default function RootLayout({ children }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -71,7 +72,9 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content="https://tareaflow.com/heroimage.png" />
       </head>
       <body>
+        <AuthProvider>
         <Layout>{children}</Layout>
+        </AuthProvider>
       </body>
     </html>
   );
