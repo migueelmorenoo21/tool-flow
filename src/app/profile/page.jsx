@@ -2,10 +2,9 @@
 
 import { useAuth } from '../../context/AuthContext';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 
 const ProfilePage = () => {
-  const { user, loading, isAuthenticated } = useAuth();
+  const { user, loading, isAuthenticated, logout } = useAuth();
   const router = useRouter();
   
   // Si está cargando, mostramos un indicador
@@ -22,6 +21,13 @@ const ProfilePage = () => {
     router.push('/login');
     return null;
   }
+  
+  // Manejador para el botón de cerrar sesión
+  const handleLogout = async () => {
+    await logout();
+    // No necesitamos redireccionar aquí ya que la función logout 
+    // en AuthContext ya maneja la redirección
+  };
 
   return (
     <div style={styles.container}>
@@ -56,6 +62,14 @@ const ProfilePage = () => {
               </div>
             )}
           </div>
+          
+          {/* Botón de cerrar sesión */}
+          <button 
+            onClick={handleLogout}
+            style={styles.logoutButton}
+          >
+            Cerrar sesión
+          </button>
         </div>
       </div>
     </div>
@@ -120,6 +134,7 @@ const styles = {
     marginTop: '1rem',
     borderTop: '1px solid #eee',
     paddingTop: '1rem',
+    marginBottom: '2rem',
   },
   sectionTitle: {
     fontSize: '1.3rem',
@@ -142,6 +157,18 @@ const styles = {
     flex: '1',
     color: '#333',
   },
+  logoutButton: {
+    width: '100%',
+    padding: '0.75rem',
+    fontSize: '1rem',
+    backgroundColor: '#D82C0D',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '0.5rem',
+    cursor: 'pointer',
+    marginTop: '1rem',
+    fontWeight: '500',
+  }
 };
 
 export default ProfilePage;
